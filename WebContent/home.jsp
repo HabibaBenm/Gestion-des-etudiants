@@ -4,6 +4,8 @@
 <%@page import="java.util.Collection"%>
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	    pageEncoding="UTF-8"%>
+	    	    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	    
 	  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -27,7 +29,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="http://localhost:8080/GestionEtudiants/assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="http://localhost:8080/GestionEtudiantst/assets/images/favicon.png" />
+    <link rel="shortcut icon" href="http://localhost:8080/GestionEtudiants/assets/images/favicon.png" />
   </head>
   <body>
     <div class="container-scroller">
@@ -35,7 +37,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
           <a class="sidebar-brand brand-logo" href="http://localhost:8080/GestionEtudiants/home.jsp"><img src="http://localhost:8080/GestionEtudiants/assets/images/new_logo copie.png" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="http://localhost:8080/GestionEtudiants/home.jsp"><img src="http://localhost:8080/GestionEtudiants/assets/images/icon.png" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="http://localhost:8080/GestionEtudiants/home.jsp"><img src="http://localhost:8080/GestionEtudiants/assets/images/new_logo.png" alt="logo" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile">
@@ -143,19 +145,12 @@
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
-          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="http://localhost:8080/GestionEtudiants/assets/images/logo-mini.svg" alt="logo" /></a>
-          </div>
-          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+          <div class="navbar-menu-wrapper flex-grow d-flex justify-content-right">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
               <span class="mdi mdi-menu"></span>
             </button>
-            <ul class="navbar-nav w-100">
-              <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input type="text" class="form-control" placeholder="Search products">
-                </form>
-              </li>
+             <ul class="navbar-nav w-100">
+              <li class="nav-item w-100"></li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown">
@@ -195,7 +190,7 @@
                 </div>
               </li>
             </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <button class="navbar-toggler navbar-toggler-right d-lg-none" type="button" data-toggle="offcanvas">
               <span class="mdi mdi-format-line-spacing"></span>
             </button>
           </div>
@@ -227,23 +222,21 @@
             </div>
             <div class="row">
               <div class="col-sm-4 grid-margin">
-                <div class="card">
+                <div class="card text-center text-xl-center">
                   <div class="card-body">
                     <a href="<%=request.getContextPath()+"/Etudiant/ajout" %>"><h5>Ajouter un etudiant</h5></a>
-                    <div class="row">
-                      <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                      <div class="col-4 col-sm-12 col-xl-11">
                         <i class="icon-lg mdi mdi-codepen text-primary ml-auto"></i>
                       </div>
-                    </div>
                   </div>
                 </div>
               </div>
               <div class="col-sm-4 grid-margin">
-                <div class="card">
+                <div class="card text-center text-xl-center">
                   <div class="card-body">
                     <a href="<%=request.getContextPath()+"/Etudiant/update" %>"><h5>Modifier un etudiant</h5></a>
                     <div class="row">
-                      <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                      <div class="col-4 col-sm-12 col-xl-11 ">
                         <i class="icon-lg mdi mdi-wallet-travel text-danger ml-auto"></i>
                       </div>
                     </div>
@@ -251,11 +244,11 @@
                 </div>
               </div>
               <div class="col-sm-4 grid-margin">
-                <div class="card">
+                <div class="card text-center text-xl-center">
                   <div class="card-body">
                     <a href="<%=request.getContextPath()+"/Etudiant/delete" %>"><h5>Supprimer un etudiant</h5></a>
                     <div class="row">
-                      <div class="col-4 col-sm-12 col-xl-4 ">
+                      <div class="col-4 col-sm-12 col-xl-11 ">
                         <i class="icon-lg mdi mdi-monitor text-success ml-auto"></i>
                       </div>
                     </div>
@@ -264,29 +257,23 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6 col-xl-4 grid-margin stretch-card">
+              <div class="col-md-6 col-xl-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <div class="d-flex flex-row justify-content-between">
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-               <div class="col-md-6 col-xl-4 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
                       <div class="item">
-                        <img src="http://localhost:8080/GestionEtudiants/assets/images/new_logo.png" alt="">
+                        <img src="assets/images/new_logo.png" alt="">
                       </div>
-                    </div>
-                    <p class="text-muted">MesEtudiants est une simple application JEE qui permet des opeÌrations avec la base de donneÌes MySQL.
-                      Cette application permet dâajouter un eÌtudiant, lister les eÌtudiants sauvegardeÌs dans la base de donneÌes, modifier un eÌtudiant, et supprimer un eÌtudiant (CRUD operations). </p>
+                    <p class="text-muted"> </br> MesEtudiants est une simple application JEE qui permet des opérations avec la base de données MySQL.
+                      Cette application permet d’ajouter un étudiant, lister les étudiants sauvegardés dans la base de données, modifier un étudiant, et supprimer un étudiant (CRUD operations).</br> </p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-12 col-xl-4 grid-margin stretch-card">
+              <div class="col-md-6 col-xl-6 grid-margin stretch-card">
+                      <img src="assets/images/IMG_3164.jpg" alt="">
+              </div>
+             </div>
+             <div class="row">
+              <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">A faire liste</h4>
@@ -299,14 +286,14 @@
                         <li>
                           <div class="form-check form-check-primary">
                             <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Modifier la region de Alami Ahmed </label>
+                              <input class="checkbox" type="checkbox"> Modifier la région de Alami Ahmed </label>
                           </div>
                           <i class="remove mdi mdi-close-box"></i>
                         </li>
                         <li class="completed">
                           <div class="form-check form-check-primary">
                             <label class="form-check-label">
-                              <input class="checkbox" type="checkbox" checked> Preparer la presentation </label>
+                              <input class="checkbox" type="checkbox" checked> Preparer la présentation </label>
                           </div>
                           <i class="remove mdi mdi-close-box"></i>
                         </li>
@@ -333,54 +320,20 @@
                         <div class="table-responsive">
                           <table class="table">
                             <tbody>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-us"></i>
-                                </td>
-                                <td>Fes</td>
-                                <td class="text-right"> 1500 </td>
-                                <td class="text-right font-weight-medium"> 56.35% </td>
+                            <thead>
+                             <tr>
+                                 <th> Region </th>
+                                 <th> Pourcentage </th>
+                                 
                               </tr>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-de"></i>
-                                </td>
-                                <td>Germany</td>
-                                <td class="text-right"> 800 </td>
-                                <td class="text-right font-weight-medium"> 33.25% </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-au"></i>
-                                </td>
-                                <td>Australia</td>
-                                <td class="text-right"> 760 </td>
-                                <td class="text-right font-weight-medium"> 15.45% </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-gb"></i>
-                                </td>
-                                <td>United Kingdom</td>
-                                <td class="text-right"> 450 </td>
-                                <td class="text-right font-weight-medium"> 25.00% </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-ro"></i>
-                                </td>
-                                <td>Romania</td>
-                                <td class="text-right"> 620 </td>
-                                <td class="text-right font-weight-medium"> 10.25% </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i class="flag-icon flag-icon-br"></i>
-                                </td>
-                                <td>Brasil</td>
-                                <td class="text-right"> 230 </td>
-                                <td class="text-right font-weight-medium"> 75.00% </td>
-                              </tr>
+                             </thead>
+                              <tbody>
+                             <c:forEach items="${etudiantS}"  var="es">
+	                          <tr>
+	                            <td> ${es.region}  </td>
+	                             <td> ${es.pourcentage}  </td>
+	                          </tr>
+	                           </c:forEach>
                             </tbody>
                           </table>
                         </div>
@@ -399,6 +352,7 @@
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright Â© 2019 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+              <span class="text-muted float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
             </div>
           </footer>
           <!-- partial -->

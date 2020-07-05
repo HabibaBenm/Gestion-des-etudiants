@@ -8583,7 +8583,8 @@ pre {
 .table, .jsgrid .jsgrid-table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #ffffff; }
+  color: #ffffff; 
+}
   .table th, .jsgrid .jsgrid-table th,
   .table td,
   .jsgrid .jsgrid-table td {
@@ -8594,7 +8595,8 @@ pre {
     vertical-align: bottom;
     border-bottom: 2px solid #2c2e33; }
   .table tbody + tbody, .jsgrid .jsgrid-table tbody + tbody {
-    border-top: 2px solid #2c2e33; }
+    border-top: 2px solid #2c2e33; 
+  }
 
 .table-sm th,
 .table-sm td {
@@ -8761,7 +8763,7 @@ pre {
 .table-active,
 .table-active > th,
 .table-active > td {
-  background-color: rgba(0, 0, 0, 0.075); }
+  background-color: rgba(240, 239, 182, 0.103); }
 
 .table-hover .table-active:hover {
   background-color: rgba(0, 0, 0, 0.075); }
@@ -20151,7 +20153,7 @@ div.tagsinput {
 /* === Landing screens === */
 /* Auth */
 .auth.login-bg {
-  background: url("../images/auth/Login_bg.jpg");
+  background: url("http://localhost:8080/GestionEtudiants/assets//images/auth/Login_bg.jpg");
   background-size: cover; }
 
 .auth .login-half-bg {

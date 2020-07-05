@@ -17,7 +17,7 @@ import Method.EtudiantMeth;
 /**
  * Servlet implementation class EtudiantServlet
  */
-@WebServlet({ "/Etudiant/ajout", "/Etudiant/list", "/Etudiant/delete", "/Etudiant/update", "/Etudiant/recherche" })
+@WebServlet({ "/Etudiant/ajout", "/Etudiant/list", "/Etudiant/delete", "/Etudiant/update", "/Etudiant/recherche", "/Etudiant/home" })
 public class EtudiantServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -158,7 +158,12 @@ public class EtudiantServlet extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/recherche.jsp").forward(request,response);
 			
 			break;
-		  
+			
+	  case "/Etudiant/home":
+		  EtudiantMeth tableNoms111 = new EtudiantMeth();
+			request.setAttribute("etudiantS", tableNoms111.tri());
+			this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request,response);
+		break;
 		
 		
 		}	
