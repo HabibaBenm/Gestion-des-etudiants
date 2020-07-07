@@ -57,20 +57,7 @@ public class EtudiantServlet extends HttpServlet {
 			
 		case "/Etudiant/update":
 			
-		/*	int CNE1 = Integer.parseInt(request.getParameter("CNE"));
-			Etudiant et =(Etudiant) EtudiantMeth.rech(CNE1);
-			request.setAttribute("et", et);
-			
-			if(et != null) 
-			{			
-				request.setAttribute("nom", et.getNom());
-				request.setAttribute("prenom", et.getPrenom());
-				request.setAttribute("email", et.getEmail());
-				request.setAttribute("dateNaissance", et.getdateNaissance());
-				request.setAttribute("region", et.getRegion());
-				request.setAttribute("TypeBac", et.getTypeBac());
-				this.getServletContext().getRequestDispatcher("/WEB-INF/update.jsp").forward(request, response);
-			}*/
+		
 			this.getServletContext().getRequestDispatcher("/WEB-INF/update.jsp").forward(request, response);
 			
 			break;
@@ -159,12 +146,7 @@ public class EtudiantServlet extends HttpServlet {
 			
 			break;
 			
-	  case "/Etudiant/home":
-		  EtudiantMeth tableNoms111 = new EtudiantMeth();
-			request.setAttribute("etudiantS", tableNoms111.tri());
-			this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request,response);
-		break;
-		
+	 
 		
 		}	
 		
