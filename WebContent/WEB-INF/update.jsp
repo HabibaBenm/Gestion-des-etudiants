@@ -247,6 +247,7 @@
 			      <span class="erreur">${erreurs['TypeBac']}</span>
                         
                       </div>
+			     <p class="${empty erreurs ? 'succes' : 'erreur'}">${resultat}</p> 
                       <button type="submit" class="btn btn-primary mr-2">Modifier</button>
                      
                     </form>
