@@ -44,9 +44,7 @@ public class EtudiantMeth {
 				e.setRegion(region);
 				e. setTypeBac(TypeBac);
 				etudiants.add(e);
-				//PrintWriter Out = null;
-				//Out.println("nom: " + nom);
-				 // Out.println("prenom: " + prenom);
+				
 				
 			}
 	
@@ -54,12 +52,12 @@ public class EtudiantMeth {
 	}
 		catch(SQLException e)
 		{
-			throw new DaoException("Erreur d'excution de la requÍte",e);
+			throw new DaoException("Erreur d'excution de la requete",e);
 		}
 	}
 	
 	public void ajouterUtilisateur(Etudiant e)throws DaoException {
-		//chargement du driver
+		
 		PreparedStatement preparedStatement;
 		try {
 			preparedStatement = (PreparedStatement) connexion.prepareStatement("INSERT INTO Etudiant(CNE,nom,prenom,email,dateNaissance,region,TypeBac) VALUES (?,?,?,?,?,?,?);");
@@ -75,12 +73,12 @@ public class EtudiantMeth {
 	}
 		catch (SQLException e1) 
 		{
-			throw new DaoException("Erreur d'excution de la requÍte", e1);
+			throw new DaoException("Erreur d'excution de la requete", e1);
 		}
 
 }
 	public static void delete(int CNE) throws DaoException {
-		// TODO Auto-generated method stub
+		
 		
 		PreparedStatement prepare;
 		try {
@@ -91,7 +89,7 @@ public class EtudiantMeth {
 		}
 		catch(SQLException e)
 		{
-			throw new DaoException("Erreur d'exÈcution de la requÍte", e);
+			throw new DaoException("Erreur d'exÈcution de la requete", e);
 		}
 	}
 	public static   List<Etudiant> rech(int CNE) {
