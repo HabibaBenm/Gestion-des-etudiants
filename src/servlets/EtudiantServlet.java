@@ -99,6 +99,40 @@ public class EtudiantServlet extends HttpServlet {
 			
 			EtudiantMeth tableNoms = new EtudiantMeth();
 			tableNoms.ajouterUtilisateur(etudiant );
+				try {   validationEmail( email );  
+			 } catch (Exception e)
+			 { 
+				 erreurs.put(email, e.getMessage() ); 
+				 } 
+			 try {   validationNom( nom );  
+			 } catch (Exception e)
+			 { 
+				 erreurs.put(nom, e.getMessage() ); 
+				 } 
+			 try {   validationPrenom( prenom );  
+			 } catch (Exception e)
+			 { 
+				 erreurs.put(prenom, e.getMessage() ); 
+				 } 
+			 try {   validationregion(region  );  
+			 } catch (Exception e)
+			 { 
+				 erreurs.put(region, e.getMessage() ); 
+				 } 
+			 
+			 try {   validationtypeBac( TypeBac );  
+			 } catch (Exception e)
+			 { 
+				 erreurs.put(TypeBac, e.getMessage() ); 
+				 } 
+			
+			 if( erreurs.isEmpty() ){
+				 resultat = "Opération Validée."; 
+				 } else {
+					 resultat = "Échec de l'Opération."; 
+				 } 
+			 request.setAttribute( ATT_ERREURS, erreurs );
+			 request.setAttribute( ATT_RESULTAT, resultat ); 
 			this.getServletContext().getRequestDispatcher("/WEB-INF/ajout.jsp").forward(request,response);
 			break;
 			
@@ -128,6 +162,40 @@ public class EtudiantServlet extends HttpServlet {
 			etu.setRegion(request.getParameter("region"));
 			etu.setTypeBac(request.getParameter("TypeBac"));
 			EtudiantMeth.update(etu);
+				try {   validationEmail( email );  
+			 } catch (Exception e)
+			 { 
+				 erreurs.put(email, e.getMessage() ); 
+				 } 
+			 try {   validationNom( nom );  
+			 } catch (Exception e)
+			 { 
+				 erreurs.put(nom, e.getMessage() ); 
+				 } 
+			 try {   validationPrenom( prenom );  
+			 } catch (Exception e)
+			 { 
+				 erreurs.put(prenom, e.getMessage() ); 
+				 } 
+			 try {   validationregion(region  );  
+			 } catch (Exception e)
+			 { 
+				 erreurs.put(region, e.getMessage() ); 
+				 } 
+			 
+			 try {   validationtypeBac( TypeBac );  
+			 } catch (Exception e)
+			 { 
+				 erreurs.put(TypeBac, e.getMessage() ); 
+				 } 
+			
+			 if( erreurs.isEmpty() ){
+				 resultat = "Opération Validée."; 
+				 } else {
+					 resultat = "Échec de l'Opération."; 
+				 } 
+			 request.setAttribute( ATT_ERREURS, erreurs );
+			 request.setAttribute( ATT_RESULTAT, resultat ); 
 		 
 		  this.getServletContext().getRequestDispatcher("/WEB-INF/update.jsp").forward(request, response);
 		  
