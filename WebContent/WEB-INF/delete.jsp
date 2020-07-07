@@ -107,9 +107,9 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<%=request.getContextPath()+"/Etudiant/ajout" %>"> Ajouter un étudiant </a></li>
-                <li class="nav-item"> <a class="nav-link" href="<%=request.getContextPath()+"/Etudiant/update" %>"> Modifier un étudiant </a></li>
-                <li class="nav-item"> <a class="nav-link" href="<%=request.getContextPath()+"/Etudiant/delete" %>"> Supprimer un étudiant </a></li>
+                <li class="nav-item"> <a class="nav-link" href="<%=request.getContextPath()+"/Etudiant/ajout" %>"> Ajouter un Ã©tudiant </a></li>
+                <li class="nav-item"> <a class="nav-link" href="<%=request.getContextPath()+"/Etudiant/update" %>"> Modifier un Ã©tudiant </a></li>
+                <li class="nav-item"> <a class="nav-link" href="<%=request.getContextPath()+"/Etudiant/delete" %>"> Supprimer un Ã©tudiant </a></li>
               </ul>
             </div>
           </li>
@@ -207,7 +207,7 @@
                     <form action="delete" method="post" class="forms-sample">
                       <div class="form-group">
                         <label for="exampleInputUsername1">CNE</label>
-                        <input type="text" class="form-control" name="CNE" id="exampleInputUsername1" placeholder="CNE">
+                        <input type="text" class="form-control" name="CNE" id="exampleInputUsername1" placeholder="CNE"  required="${true }">
                       </div>
                       
                       <button type="submit" class="btn btn-primary mr-2">Supprimer</button>
@@ -222,7 +222,7 @@
           <!-- partial:../../partials/_footer.html -->
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright Â© 2019 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
               <span class="text-muted float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
             </div>
           </footer>
