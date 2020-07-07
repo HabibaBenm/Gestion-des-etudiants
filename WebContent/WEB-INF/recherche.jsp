@@ -207,11 +207,11 @@
                     <form action="recherche" method="post" class="forms-sample">
                       <div class="form-group">
                         <label for="exampleInputUsername1">CNE</label>
-                        <input type="text" class="form-control" name="CNE" id="exampleInputUsername1" placeholder="CNE">
+                        <input type="text" class="form-control" name="CNE" id="exampleInputUsername1" placeholder="CNE"  required="${true }">
                       </div>
                       
                       <button type="submit" class="btn btn-primary mr-2">Chercher</button>
-                      <button class="btn btn-dark">Annuler</button>
+                     
                     </form>
                      <div class="table-responsive">
                       <table class="table table-striped table-hover">
@@ -253,7 +253,7 @@
           <!-- partial:../../partials/_footer.html -->
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright Â© 2019 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
               <span class="text-muted float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
             </div>
           </footer>
