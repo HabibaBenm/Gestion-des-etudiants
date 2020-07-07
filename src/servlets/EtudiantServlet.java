@@ -152,5 +152,48 @@ public class EtudiantServlet extends HttpServlet {
 		
 		
 	}
+	private void validationEmail( String email ) throws Exception{   
+ 		if (email != null  && !email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) { 
+ 			throw new Exception("Merci de saisir une adresse mail valide."); 
+ 			}
+ 		}
+ 	private void validationNom( String nom ) throws Exception{  
+ 		if (nom != null ) { 
+ 			if (nom.length() < 3) {    
+ 				throw new Exception("Le nom  doit contenir au moins 3 caractères.");  
+ 				}  
+ 			} else { 
+ 				throw new Exception("Merci d'entrer un nom d'Etudiant.");  
+ 				} 
+ 		} 
+ 	private void validationPrenom( String prenom ) throws Exception{  
+ 		if (prenom != null ) { 
+ 			if (prenom.length() < 3) {    
+ 				throw new Exception("Le prenom  doit contenir au moins 3 caractères.");  
+ 				}  
+ 			} else { 
+ 				throw new Exception("Merci d'entrer un prenom d'Etudiant.");  
+ 				} 
+ 		} 
+ 	private void validationregion( String region ) throws Exception{  
+ 		if (region != null ) { 
+ 			if (region.length() < 3) {    
+ 				throw new Exception("La region  doit contenir au moins 3 caractères.");  
+ 				}  
+ 			} else { 
+ 				throw new Exception("Merci d'entrer une region.");  
+ 				
+ 				} 
+ 		} 
+ 	private void validationtypeBac( String TypeBac ) throws Exception{  
+ 		if (TypeBac != null ) { 
+ 			if (TypeBac.length() < 3) {    
+ 				throw new Exception("Le Type de baccalaureat   doit contenir au moins 3 caractères.");  
+ 				}  
+ 			} else { 
+ 				throw new Exception("Merci d'entrer un Type de baccalaureat.");  
+ 				
+ 				} 
+ 		} 
 
 }
