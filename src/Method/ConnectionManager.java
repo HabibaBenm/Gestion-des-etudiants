@@ -23,7 +23,7 @@ public class ConnectionManager {
 		}
 		catch (SQLException e) 
 		{
-			throw new DaoException("Impossible d'acc�der � la base de donn�es.", e);
+			throw new DaoException("Impossible d'acceder à la base de donnees.", e);
 		}
 		
 	}
