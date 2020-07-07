@@ -212,14 +212,17 @@
                       <div class="form-group">
                         <label for="exampleInputUsername1">Nom</label>
                         <input type="text" class="form-control" name="nom" id="exampleInputUsername1" placeholder="Nom" value="${ nom }"  required="${true }">
+			       <span class="erreur">${erreurs['nom']}</span>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputUsername1">Prenom</label>
                         <input type="text" class="form-control" name="prenom" id="exampleInputUsername1" placeholder="Prenom" value="${ prenom }"   required="${true }">
+			       <span class="erreur">${erreurs['prenom']}</span>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Addresse Email</label>
                         <input type="email" class="form-control"  name="email" id="exampleInputEmail1" placeholder="Email" value="${ email }"   required="${true }">
+			       <span class="erreur">${erreurs['email']}</span>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputDate"> Date de Naissance</label>
@@ -228,14 +231,17 @@
                       <div class="form-group">
                         <label for="exampleInputCity1">Region</label>
                         <input type="text" class="form-control" name="region" id="exampleInputCity1" placeholder="Location" value="${ region }"   required="${true }">
+			       <span class="erreur">${erreurs['region']}</span>
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Type de Baccalaureat</label>
                         <input type="text" class="form-control"  name="TypeBac"id="exampleInputCity1" placeholder="Type de baccalaureat" value="${ TypeBac }"   required="${true }">
+			       <span class="erreur">${erreurs['TypeBac']}</span>
                         
                       </div>
+			     <p class="${empty erreurs ? 'succes' : 'erreur'}">${resultat}</p> 
                       <button type="submit" class="btn btn-primary mr-2">Ajouter</button>
-                      <button class="btn btn-dark">Annuler</button>
+                     
                     </form>
                   </div>
                 </div>
