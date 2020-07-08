@@ -1,7 +1,9 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +22,8 @@ import Method.EtudiantMeth;
 @WebServlet({ "/Etudiant/ajout", "/Etudiant/list", "/Etudiant/delete", "/Etudiant/update", "/Etudiant/recherche", "/Etudiant/home" })
 public class EtudiantServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static final String ATT_ERREURS = "erreurs";
+	public static final String ATT_RESULTAT = "resultat";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -83,11 +87,12 @@ public class EtudiantServlet extends HttpServlet {
 		String region              =  request.getParameter("region");
 		String TypeBac              =  request.getParameter("TypeBac");
 		String path                   =  request.getServletPath();
-		
+		Map<String, String> erreurs   =  new HashMap<String, String>();
 		
 		switch (path) 
 		{
 		case "/Etudiant/ajout":
+			String resultat;
 			Etudiant etudiant= new Etudiant();
 			etudiant.setCNE(Integer.valueOf(request.getParameter("CNE")));
 			etudiant.setNom(request.getParameter("nom"));
@@ -97,33 +102,44 @@ public class EtudiantServlet extends HttpServlet {
 			etudiant.setRegion(request.getParameter("region"));
 			etudiant.setTypeBac(request.getParameter("TypeBac"));
 			
-			EtudiantMeth tableNoms = new EtudiantMeth();
-			tableNoms.ajouterUtilisateur(etudiant );
-				try {   validationEmail( email );  
+			
+				try {   validationEmail( email );
+				
+				
 			 } catch (Exception e)
 			 { 
 				 erreurs.put(email, e.getMessage() ); 
 				 } 
-			 try {   validationNom( nom );  
+			 try {  
+				 if (nom.length() < 3) {    
+		 				throw new Exception("Le nom  doit contenir au moins 3 caractères.");  
+		 				} 
+				 else { if (prenom.length() < 3) {    
+		 				throw new Exception("Le prenom  doit contenir au moins 3 caractères.");  
+		 				} 
+				 else {
+					 if (region.length() < 3) {    
+			 				throw new Exception("La region   doit contenir au moins 3 caractères.");  
+			 				} 
+					 else {
+						 if (TypeBac.length() < 3) {    
+				 				throw new Exception("Le Type de Baccalauréat  doit contenir au moins 3 caractères.");  
+				 				} 
+						 
+					 }
+				 }
+					 
+				 EtudiantMeth tableNoms = new EtudiantMeth();
+					tableNoms.ajouterUtilisateur(etudiant );	 
+				 }
+				 
+				 
+				 
+			
 			 } catch (Exception e)
 			 { 
-				 erreurs.put(nom, e.getMessage() ); 
-				 } 
-			 try {   validationPrenom( prenom );  
-			 } catch (Exception e)
-			 { 
-				 erreurs.put(prenom, e.getMessage() ); 
-				 } 
-			 try {   validationregion(region  );  
-			 } catch (Exception e)
-			 { 
-				 erreurs.put(region, e.getMessage() ); 
-				 } 
-			 
-			 try {   validationtypeBac( TypeBac );  
-			 } catch (Exception e)
-			 { 
-				 erreurs.put(TypeBac, e.getMessage() ); 
+				 String message = null;
+				erreurs.put(message, e.getMessage() ); 
 				 } 
 			
 			 if( erreurs.isEmpty() ){
@@ -161,32 +177,42 @@ public class EtudiantServlet extends HttpServlet {
 			etu.setdateNaissance(request.getParameter("dateNaissance"));
 			etu.setRegion(request.getParameter("region"));
 			etu.setTypeBac(request.getParameter("TypeBac"));
-			EtudiantMeth.update(etu);
-				try {   validationEmail( email );  
+			
+			try {   validationEmail( email );
+			
+			
 			 } catch (Exception e)
 			 { 
 				 erreurs.put(email, e.getMessage() ); 
 				 } 
-			 try {   validationNom( nom );  
+			 try {  
+				 if (nom.length() < 3) {    
+		 				throw new Exception("Le nom  doit contenir au moins 3 caractères.");  
+		 				} 
+				 else { if (prenom.length() < 3) {    
+		 				throw new Exception("Le prenom  doit contenir au moins 3 caractères.");  
+		 				} 
+				 else {
+					 if (region.length() < 3) {    
+			 				throw new Exception("La region   doit contenir au moins 3 caractères.");  
+			 				} 
+					 else {
+						 if (TypeBac.length() < 3) {    
+				 				throw new Exception("Le Type de Baccalauréat  doit contenir au moins 3 caractères.");  
+				 				} 
+						 
+					 }
+				 }
+					 
+				 EtudiantMeth.update(etu);
+				 }
+				 
+				 
+				 
+			
 			 } catch (Exception e)
 			 { 
 				 erreurs.put(nom, e.getMessage() ); 
-				 } 
-			 try {   validationPrenom( prenom );  
-			 } catch (Exception e)
-			 { 
-				 erreurs.put(prenom, e.getMessage() ); 
-				 } 
-			 try {   validationregion(region  );  
-			 } catch (Exception e)
-			 { 
-				 erreurs.put(region, e.getMessage() ); 
-				 } 
-			 
-			 try {   validationtypeBac( TypeBac );  
-			 } catch (Exception e)
-			 { 
-				 erreurs.put(TypeBac, e.getMessage() ); 
 				 } 
 			
 			 if( erreurs.isEmpty() ){
@@ -224,44 +250,7 @@ public class EtudiantServlet extends HttpServlet {
  		if (email != null  && !email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) { 
  			throw new Exception("Merci de saisir une adresse mail valide."); 
  			}
+ 		
  		}
- 	private void validationNom( String nom ) throws Exception{  
- 		if (nom != null ) { 
- 			if (nom.length() < 3) {    
- 				throw new Exception("Le nom  doit contenir au moins 3 caractères.");  
- 				}  
- 			} else { 
- 				throw new Exception("Merci d'entrer un nom d'Etudiant.");  
- 				} 
- 		} 
- 	private void validationPrenom( String prenom ) throws Exception{  
- 		if (prenom != null ) { 
- 			if (prenom.length() < 3) {    
- 				throw new Exception("Le prenom  doit contenir au moins 3 caractères.");  
- 				}  
- 			} else { 
- 				throw new Exception("Merci d'entrer un prenom d'Etudiant.");  
- 				} 
- 		} 
- 	private void validationregion( String region ) throws Exception{  
- 		if (region != null ) { 
- 			if (region.length() < 3) {    
- 				throw new Exception("La region  doit contenir au moins 3 caractères.");  
- 				}  
- 			} else { 
- 				throw new Exception("Merci d'entrer une region.");  
- 				
- 				} 
- 		} 
- 	private void validationtypeBac( String TypeBac ) throws Exception{  
- 		if (TypeBac != null ) { 
- 			if (TypeBac.length() < 3) {    
- 				throw new Exception("Le Type de baccalaureat   doit contenir au moins 3 caractères.");  
- 				}  
- 			} else { 
- 				throw new Exception("Merci d'entrer un Type de baccalaureat.");  
- 				
- 				} 
- 		} 
-
+ 	
 }
