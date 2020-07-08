@@ -1,10 +1,7 @@
 # Gestion-des-etudiants
-
+une simple application JEE qui permet des opérations avec la base de données <b>```MYSQL```</b> via <b>```JDBC```</b>. 
 Technologie utilisée : <b>```JEE```</b> </br>
 Serveur d'application : <b>```TOMCAT```</b>
-
-Le projet consiste à créer une plateforme de gestion client sous <b>```JEE```</b>.
-une simple application JEE qui permet des opérations avec la base de données <b>```SQL```</b> via <b>```JDBC```</b>. 
 ## Architecture de l'application
  l'application est découpée en couches qui correspondent à nos packages. Nous avons  4 packages :
 <ul>
