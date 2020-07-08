@@ -1,5 +1,6 @@
 # Gestion-des-etudiants
 une simple application JEE qui permet des opérations avec la base de données <b>```MYSQL```</b> via <b>```JDBC```</b>. 
+
 Technologie utilisée : <b>```JEE```</b> </br>
 Serveur d'application : <b>```TOMCAT```</b>
 ## Architecture de l'application
